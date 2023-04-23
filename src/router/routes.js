@@ -22,11 +22,6 @@ const routes = [
         path: 'email-confirmation',
         name: 'email-confirmation',
         component: () => import('pages/EmailConfirmation.vue')
-      },
-      {
-        path: 'me',
-        name: 'me',
-        component: () => import('pages/Me.vue')
       }
     ]
   },
@@ -35,11 +30,14 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {
-        path: '',
-        name: 'home',
-        component: () => import('pages/IndexPage.vue')
+        path: 'me',
+        name: 'me',
+        component: () => import('pages/Me.vue')
       }
-    ]
+    ],
+    meta: {
+      requiresAuth: true
+    }
   },
 
   // Always leave this as last one,
